@@ -1,11 +1,12 @@
 import os
 import sys
 import time
+import imageUtils
 
 update = 5
-repeat = 2
+repeat = 10
 path = "E:/test"
-
+path2 = "E:/a"
 def watchDir(path):
     print(time.ctime())
     # os.stat().st_mtime返回监管的Dir最后一次修改的时间戳（1970纪元后经过的浮点秒数）
@@ -22,6 +23,7 @@ while True:
     check = watchDir(path)
     if initCheck != check:
         print("dir update, run something")
+        imageUtils.createProxy(path, path2, "jpg")
         initCheck = check
     counter += 1
     if counter == repeat:

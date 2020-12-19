@@ -1,5 +1,13 @@
 import os
-import time
-# path = "E:/test"
-# print(os.stat(path).st_mtime)
-print(time.time() % 5)
+
+dirName = "F:/b"
+dirList = []
+for file in os.listdir(dirName):
+    file = file[0:9]
+    dirList.append(file)
+    file = os.path.join(dirName, file).replace("\\", "/")
+
+dirList.sort()
+for file in dirList:
+
+print(dirList)
